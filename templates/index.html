@@ -28,15 +28,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        {% if request.user.is_authenticated %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "motos" %}>Motos</a></li>
                         
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">{{request.user.username}}</a></li>
                         <li class="nav-item mx-0 mx-lg-1">
                             <form action={% url "logout" %} method="post">
                                 {% csrf_token %}
                                 <input type="submit" class="nav-link py-3 px-0 px-lg-3 rounded" value="Cerrar Sesion">
                             </form>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">{{request.user.username}}</a></li>
                         {% else %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "login" %}>Iniciar Sesion</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "registro" %}>Registrarse</a></li>

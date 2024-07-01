@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block title_head %}
+Motos
+{% endblock title_head %}
+{% block h1_header %}
+Listado de Motos!!!
+{% endblock h1_header %}
+
+{% block main %}
+
+<a href={% url "crear_moto" %}>Crear moto</a>
+
+<form action={% url "motos" %}>
+    {{formulario}}
+    <input type="submit" value="Buscar">
+</form>
+
+{% if motos %}
+    <ul>
+        {% for moto in motos %}
+        <li><a href={% url "ver_moto" moto.id %}>{{moto}}</a> | <a href={% url "actualizar_moto" moto.id %}>Actualizar</a> | <a href={% url "eliminar_moto" moto.id %}>Eliminar</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No se encontraron motos.</p>
+{% endif %}
+{% endblock main %}

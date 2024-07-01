@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title_head %}
+Actualizar Moto
+{% endblock title_head %}
+{% block h1_header %}
+Actualizando {{moto}}
+{% endblock h1_header %}
+
+{% block main %}
+
+<form action={% url "actualizar_moto" moto.id %} method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Actualizar">
+</form>
+
+{% endblock main %}

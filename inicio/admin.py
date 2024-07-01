@@ -1,3 +1,4 @@
 from django.contrib import admin
+from vehiculos.models import Moto
 
-# Register your models here.
+admin.site.register(Moto)
